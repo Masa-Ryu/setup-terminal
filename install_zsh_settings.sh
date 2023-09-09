@@ -34,7 +34,6 @@ fi
 if [ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]; then
     echo "Installing zinit..."
     bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
-    zinit self-update
     echo "zinit ice depth=1" >>~/.zshrc
     echo "## plugins" >>~/.zshrc
     echo "zinit light zsh-users/zsh-autosuggestions" >>~/.zshrc
@@ -47,10 +46,8 @@ fi
 # install Meslo font
 echo "Installing Meslo font..."
 mkdir -p ~/.local/share/fonts
-
-./install.sh Meslo
-fc-cache -fv
 cd ~/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/blob/7deaff60d02ad26c38f4f8cc714300c08f598b1e/patched-fonts/Meslo/S/Regular/MesloLGSNerdFont-Regular.ttf
+fc-cache -fv
 cd ~
 print_success "SUCCESS: Done!"
 
@@ -82,7 +79,9 @@ echo "source ~/.config/zsh/functions_tmux.zsh" >>~/.zshrc
 echo "source ~/.config/zsh/python.zsh" >>~/.zshrc
 echo "source ~/.config/zsh/rust.zsh" >>~/.zshrc
 
+cd ~
 rm -rf setup-zsh
 print_success "SUCCESS: Done!"
-print_success "If you want to set default shell, run 'chsh -s /usr/bin/zsh'"
 zsh
+zinit self-update
+print_success "If you want to set default shell, run 'chsh -s /usr/bin/zsh'"
