@@ -1,0 +1,6 @@
+alias update='sudo apt update'
+alias upgrade='sudo apt upgrade -y'
+alias install='sudo apt install'
+alias remove='sudo apt remove'
+alias uninstall='sudo apt remove'
+alias uskey='setxkbmap us'

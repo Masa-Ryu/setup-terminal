@@ -1,0 +1,5 @@
+alias p='python3'
+alias python='python3'
+alias pip='pip3'
+alias pipout='pip freeze > requirements.txt'
+alias pipin='pip install -r requirements.txt'

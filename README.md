@@ -1,2 +1,5 @@
-# setup-terminal
-Automatically set up terminal environment.
+# setup-zsh
+Automatically set up zsh environment.
+
+# How does it work
+Type `./install_zsh_settings.sh`
