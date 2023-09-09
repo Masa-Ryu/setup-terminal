@@ -11,6 +11,7 @@ if [ ! -f /usr/bin/zsh ]; then
         echo "Installing zsh..."
         sudo apt install zsh
         echo "Done!"
+        echo ""
     fi
 fi
 
@@ -19,6 +20,7 @@ if [ ! -f /usr/bin/curl ]; then
     echo "Installing curl..."
     sudo apt install curl
     echo "Done!"
+    echo ""
 fi
 
 # install zinit
@@ -33,22 +35,25 @@ if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     echo "zinit light zsh-users/zsh-completions" >>~/.zshrc
     echo "light agkozak/zsh-z" >>~/.zshrc
     echo "Done!"
+    echo ""
 fi
 
 # install Meslo font
-# git clone https://github.com/ryanoasis/nerd-fonts.git
-# echo "Installing Meslo font..."
-# cd nerd-fonts
-# ./install.sh Meslo
-# fc-cache -fv
-# cd ~
-# rm -rf nerd-fonts
+echo "Installing Meslo font..."
+mkdir -p ~/.local/share/fonts
+
+./install.sh Meslo
+fc-cache -fv
+cd ~/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/blob/7deaff60d02ad26c38f4f8cc714300c08f598b1e/patched-fonts/Meslo/S/Regular/MesloLGSNerdFont-Regular.ttf
+echo "Done!"
+echo ""
 
 #install p10k theme
 echo "Installing p10k theme..."
 echo "zinit light romkatv/powerlevel10k" >>~/.zshrc
 echo "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh" >>~/.zshrc
 echo "Done!"
+echo ""
 
 # set up zshrc
 echo "Setting up .zshrc..."
@@ -70,8 +75,9 @@ echo "source ~/.config/zsh/git.zsh" >>~/.zshrc
 echo "source ~/.config/zsh/functions_tmux.zsh" >>~/.zshrc
 echo "source ~/.config/zsh/python.zsh" >>~/.zshrc
 echo "source ~/.config/zsh/rust.zsh" >>~/.zshrc
-echo "Done!"
 
-cd ~
 rm -rf setup-zsh
 source ~/.zshrc
+zsh
+
+echo "Done!"
