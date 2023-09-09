@@ -1,10 +1,11 @@
-if [ "$#" -eq 0 ]; then
-  tmux split-window -v
-  tmux split-window -h
-  tmux resize-pane -D 15
-  tmux select-pane -t 1
-else
-  case $1 in
+ide() {
+  if [ "$#" -eq 0 ]; then
+    tmux split-window -v
+    tmux split-window -h
+    tmux resize-pane -D 15
+    tmux select-pane -t 1
+  else
+    case $1 in
     1)
       tmux split-window -v
       tmux resize-pane -D 15
@@ -34,7 +35,8 @@ else
       clear
       ;;
     *)
-      echo [ERROR] "$1" is invalid argument.
+      echo [ERROR] "$1" is an invalid argument.
       ;;
-  esac
-fi
+    esac
+  fi
+}
