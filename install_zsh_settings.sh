@@ -3,6 +3,15 @@
 # read greeting.sh
 ./scripts/greeting.sh
 
+print_success() {
+    echo -e "\033[32m$1\033[0m"
+    echo ""
+}
+print_error() {
+    echo -e "\033[31m$1\033[0m"
+    echo ""
+}
+
 # install zsh
 if [ ! -f /usr/bin/zsh ]; then
     echo "Do you want to install zsh? (y/n)"
@@ -10,8 +19,7 @@ if [ ! -f /usr/bin/zsh ]; then
     if [ "$answer" != "${answer#[Yy]}" ]; then
         echo "Installing zsh..."
         sudo apt install -y zsh
-        echo "Done!"
-        echo ""
+        print_success "SUCCESS: Done!"
     fi
 fi
 
@@ -19,8 +27,7 @@ fi
 if [ ! -f /usr/bin/curl ]; then
     echo "Installing curl..."
     sudo apt install -y curl
-    echo "Done!"
-    echo ""
+    print_success "SUCCESS: Done!"
 fi
 
 # install zinit
@@ -34,8 +41,7 @@ if [ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]; then
     echo "zinit light zdharma-continuum/fast-syntax-highlighting" >>~/.zshrc
     echo "zinit light zsh-users/zsh-completions" >>~/.zshrc
     echo "light agkozak/zsh-z" >>~/.zshrc
-    echo "Done!"
-    echo ""
+    print_success "SUCCESS: Done!"
 fi
 
 # install Meslo font
@@ -46,15 +52,13 @@ mkdir -p ~/.local/share/fonts
 fc-cache -fv
 cd ~/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/blob/7deaff60d02ad26c38f4f8cc714300c08f598b1e/patched-fonts/Meslo/S/Regular/MesloLGSNerdFont-Regular.ttf
 cd ~
-echo "Done!"
-echo ""
+print_success "SUCCESS: Done!"
 
 #install p10k theme
 echo "Installing p10k theme..."
 echo "zinit light romkatv/powerlevel10k" >>~/.zshrc
 echo "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh" >>~/.zshrc
-echo "Done!"
-echo ""
+print_success "SUCCESS: Done!"
 
 # set up zshrc
 echo "Setting up .zshrc..."
@@ -79,8 +83,5 @@ echo "source ~/.config/zsh/python.zsh" >>~/.zshrc
 echo "source ~/.config/zsh/rust.zsh" >>~/.zshrc
 
 rm -rf setup-zsh
-source ~/.zshrc
-zsh
-echo "Done!"
-echo ""
+print_success "SUCCESS: Done!"
 echo "If you want to set default shell, run 'chsh -s /usr/bin/zsh'"
