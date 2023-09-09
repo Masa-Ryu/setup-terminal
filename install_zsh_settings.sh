@@ -4,11 +4,11 @@
 ./scripts/greeting.sh
 
 print_success() {
-    echo -e "\033[32m$1\033[0m"
+    echo "\033[32m$1\033[0m"
     echo ""
 }
 print_error() {
-    echo -e "\033[31m$1\033[0m"
+    echo "\033[31m$1\033[0m"
     echo ""
 }
 
@@ -84,4 +84,5 @@ echo "source ~/.config/zsh/rust.zsh" >>~/.zshrc
 
 rm -rf setup-zsh
 print_success "SUCCESS: Done!"
-echo "If you want to set default shell, run 'chsh -s /usr/bin/zsh'"
+print_success "If you want to set default shell, run 'chsh -s /usr/bin/zsh'"
+zsh
