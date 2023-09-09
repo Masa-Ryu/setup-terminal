@@ -24,7 +24,7 @@ if [ ! -f /usr/bin/curl ]; then
 fi
 
 # install zinit
-if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+if [ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]; then
     echo "Installing zinit..."
     bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
     zinit self-update
