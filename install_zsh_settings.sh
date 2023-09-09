@@ -47,7 +47,6 @@ fi
 echo "Installing Meslo font..."
 mkdir -p ~/.local/share/fonts
 cd ~/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/blob/7deaff60d02ad26c38f4f8cc714300c08f598b1e/patched-fonts/Meslo/S/Regular/MesloLGSNerdFont-Regular.ttf
-fc-cache -fv
 cd ~
 print_success "SUCCESS: Done!"
 
@@ -70,6 +69,8 @@ cp config/functions_tmux.zsh ~/.config/zsh/functions/
 cp config/python.zsh ~/.config/zsh/
 cp config/rust.zsh ~/.config/zsh/
 
+echo "" >>~/.zshrc
+echo "# zsh settings" >>~/.zshrc
 echo "source ~/.config/zsh/style.zsh" >>~/.zshrc
 echo "source ~/.config/zsh/aliases.zsh" >>~/.zshrc
 echo "source ~/.config/zsh/ubuntu.zsh" >>~/.zshrc
