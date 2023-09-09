@@ -39,7 +39,8 @@ if [ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]; then
     echo "zinit light zsh-users/zsh-autosuggestions" >>~/.zshrc
     echo "zinit light zdharma-continuum/fast-syntax-highlighting" >>~/.zshrc
     echo "zinit light zsh-users/zsh-completions" >>~/.zshrc
-    echo "light agkozak/zsh-z" >>~/.zshrc
+    echo "zinit light agkozak/zsh-z" >>~/.zshrc
+    echo "typeset -g POWERLEVEL9K_INSTANT_PROMPT=off" >>~/.zshrc
     print_success "SUCCESS: Done!"
 fi
 
@@ -76,7 +77,7 @@ echo "source ~/.config/zsh/aliases.zsh" >>~/.zshrc
 echo "source ~/.config/zsh/ubuntu.zsh" >>~/.zshrc
 echo "source ~/.config/zsh/history.zsh" >>~/.zshrc
 echo "source ~/.config/zsh/git.zsh" >>~/.zshrc
-echo "source ~/.config/zsh/functions_tmux.zsh" >>~/.zshrc
+echo "source ~/.config/zsh/functions/functions_tmux.zsh" >>~/.zshrc
 echo "source ~/.config/zsh/python.zsh" >>~/.zshrc
 echo "source ~/.config/zsh/rust.zsh" >>~/.zshrc
 
