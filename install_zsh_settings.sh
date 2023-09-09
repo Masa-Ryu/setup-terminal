@@ -59,6 +59,7 @@ echo ""
 # set up zshrc
 echo "Setting up .zshrc..."
 mkdir -p ~/.config/zsh/functions
+cd ~/setup-zsh
 cp config/style.zsh ~/.config/zsh/
 cp config/aliases.zsh ~/.config/zsh/
 cp config/ubuntu.zsh ~/.config/zsh/
@@ -80,5 +81,6 @@ echo "source ~/.config/zsh/rust.zsh" >>~/.zshrc
 rm -rf setup-zsh
 source ~/.zshrc
 zsh
-
 echo "Done!"
+echo ""
+echo "If you want to set default shell, run 'chsh -s /usr/bin/zsh'"
