@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # read greeting.sh
-./greeting.sh
+./scripts/greeting.sh
 
 # install zsh
 if [ ! -f /usr/bin/zsh ]; then
@@ -12,15 +12,6 @@ if [ ! -f /usr/bin/zsh ]; then
         sudo apt install zsh
         echo "Done!"
     fi
-fi
-
-# set zsh as default shell
-echo "Do you want to set zsh as default shell? (y/n)"
-read answer
-if [ "$answer" != "${answer#[Yy]}" ]; then
-    echo "Setting zsh as default shell..."
-    chsh -s $(which zsh)
-    echo "Done!"
 fi
 
 # install curl
@@ -34,7 +25,6 @@ fi
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     echo "Installing zinit..."
     bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
-    source ~/.bashrc
     zinit self-update
     echo "zinit ice depth=1" >>~/.zshrc
     echo "## plugins" >>~/.zshrc
@@ -66,9 +56,9 @@ mkdir -p ~/.config/zsh/functions
 cp config/style.zsh ~/.config/zsh/
 cp config/aliases.zsh ~/.config/zsh/
 cp config/ubuntu.zsh ~/.config/zsh/
-cp config/histoty.zsh ~/.config/zsh/
+cp config/history.zsh ~/.config/zsh/
 cp config/git.zsh ~/.config/zsh/
-cp config/funtions_tmux.zsh ~/.config/zsh/functions/
+cp config/functions_tmux.zsh ~/.config/zsh/functions/
 cp config/python.zsh ~/.config/zsh/
 cp config/rust.zsh ~/.config/zsh/
 
