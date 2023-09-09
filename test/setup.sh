@@ -17,4 +17,5 @@ apt install -y git
 # testユーザーに切り替え
 echo ""
 echo "Switching to test user..."
-su - test -c "cd ~; git clone https://github.com/Masa-Ryu/setup-zsh.git; cd setup-zsh;"
+su - test
+# su - test -c "cd ~; git clone https://github.com/Masa-Ryu/setup-zsh.git; cd setup-zsh;"

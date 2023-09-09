@@ -9,7 +9,7 @@ if [ ! -f /usr/bin/zsh ]; then
     read answer
     if [ "$answer" != "${answer#[Yy]}" ]; then
         echo "Installing zsh..."
-        sudo apt install zsh
+        sudo apt install -y zsh
         echo "Done!"
         echo ""
     fi
@@ -18,7 +18,7 @@ fi
 # install curl
 if [ ! -f /usr/bin/curl ]; then
     echo "Installing curl..."
-    sudo apt install curl
+    sudo apt install -y curl
     echo "Done!"
     echo ""
 fi
@@ -45,6 +45,7 @@ mkdir -p ~/.local/share/fonts
 ./install.sh Meslo
 fc-cache -fv
 cd ~/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/blob/7deaff60d02ad26c38f4f8cc714300c08f598b1e/patched-fonts/Meslo/S/Regular/MesloLGSNerdFont-Regular.ttf
+cd ~
 echo "Done!"
 echo ""
 
