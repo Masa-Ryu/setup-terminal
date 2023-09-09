@@ -14,6 +14,12 @@ echo "test ALL=(ALL) ALL" >>/etc/sudoers
 echo "Installing Git as root..."
 apt install -y git
 
+echo "Installing vim..."
+apt install -y vim
+
+echo "installing tmux..."
+apt install -y tmux
+
 # testユーザーに切り替え
 echo ""
 echo "Switching to test user..."
