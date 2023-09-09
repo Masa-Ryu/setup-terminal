@@ -82,6 +82,5 @@ echo "source ~/.config/zsh/rust.zsh" >>~/.zshrc
 cd ~
 rm -rf setup-zsh
 print_success "SUCCESS: Done!"
-zsh
-zinit self-update
 print_success "If you want to set default shell, run 'chsh -s /usr/bin/zsh'"
+zsh
