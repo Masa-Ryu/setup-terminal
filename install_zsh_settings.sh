@@ -1,6 +1,7 @@
 #!/bin/bash
 
 CURRENT_DIR=$PWD
+sudo apt update
 
 # read greeting.sh
 ./scripts/greeting.sh
@@ -50,11 +51,17 @@ if [ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]; then
 fi
 
 # install Meslo font
-cd $HOME
 echo "Installing Meslo font..."
-mkdir -p $HOME/.local/share/fonts
-cd $HOME/.local/share/fonts
-curl -fLO https://github.com/ryanoasis/nerd-fonts/blob/7deaff60d02ad26c38f4f8cc714300c08f598b1e/patched-fonts/Meslo/S/Regular/MesloLGSNerdFont-Regular.ttf
+sudo apt install fontconfig
+cd $HOME
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip
+mkdir -p .local/share/fonts
+unzip Meslo.zip -d .local/share/fonts
+cd .local/share/fonts
+rm *Windows*
+cd $HOME
+rm Meslo.zip
+fc-cache -fv
 print_success "SUCCESS: Done!"
 
 #install p10k theme
@@ -91,4 +98,3 @@ cd $HOME
 rm -rf $CURRENT_DIR
 print_success "SUCCESS: Done!"
 print_success "If you want to set as default shell, type 'chsh -s /usr/bin/zsh'"
-zsh
