@@ -14,5 +14,6 @@ Installed packages.
 ```
 sh ./install_zsh_settings.sh
 ```
-3. Set the terminal font.
-4. If you want to set as default shell, type `chsh -s /usr/bin/zsh`
+3. If you want to set as default shell, type `chsh -s /usr/bin/zsh`.
+4. Reboot your machine.
+5. Set the terminal font.
